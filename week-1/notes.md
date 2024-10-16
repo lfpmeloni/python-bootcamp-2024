@@ -206,7 +206,7 @@ Example: not (5 > 3) ➔ False
 
 ### Common operators
 
-Modulus or Modulo: 7%2 
+Modulus or Modulo: 7%2
 Floor of division: 7//2
 Power: 2**3
 Adition: x = x + y or x += y
@@ -217,3 +217,33 @@ Readability: 1000000 == 1_000_000 == 10**6 == 1E6
 By mixing float and int will result in float
 Type of representation 2e4 and 2e-2 are floats
 import math for more operators such as Average, Root, e, Std deviation, etc
+
+### Handling Strings
+
+f-strings (f is for format)
+To insert a variable’s value into a string, place the letter f immediately before the opening quotation mark.
+Example: full_name = f"{first_name} {last_name}"
+
+Whitespace in Strings can be used to organize the output making easier for users to read.
+\t -> tab
+\n -> newline
+\\ -> backlash
+\' -> Ein Anfuhungszeichen
+
+string.rstrip() -> removes right whitespace to avoid confusion
+string.lstrip() -> same but left
+string.lstrip() -> both left and right
+string.removeprefix('https:') -> removes content from prefix
+
+## Day 3
+
+### Date and Time
+
+Dates (Day, Month, Year)
+Time (Hours, Minutes, Seconds, Milliseconds)
+Timezone
+Days of the week
+
+The way that time is stored can vary depending on Country, system and so on.
+
+Python solves this with the datetime package.
