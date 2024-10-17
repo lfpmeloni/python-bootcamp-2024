@@ -247,3 +247,82 @@ Days of the week
 The way that time is stored can vary depending on Country, system and so on.
 
 Python solves this with the datetime package.
+
+## Day 4
+
+### Date and Time (continuation)
+
+Defining a date
+import datetime as dt
+date = dt.datetime(year, month, day, hour, ...)
+date = dt.datetime(2024, 3, 4) # Uses positional Arguments
+date = dt.datetime(month = 3, year = 2024, day = 4) #is equivalent but uses Keywords Arguments
+date = dt.today() #classmethode
+date = dt.datetime.now()
+
+date Object
+y = dt.date.today(year, month, day) # Recieves year, month and day as parameters
+
+time Object
+y = dt.time(hour, minute, second, microsecond)
+pause = dt.time(10,5,8) -> 10:05:08 as String
+
+datetime Object
+y = dt.dateime.combine(date, time)
+
+dt objects can be added or subtracted but must not mix the objects
+Input of the datetime Objects must be integers so to work with strings we use:
+dt.datetime.strptime(date_string, format)
+
+Argument Meaning
+%A Weekday name, such as Monday
+%a Weekday short, such as Mon
+%B Month name, such as January
+%b Month short, such as Jan
+%m Month, as a number (01 to 12)
+%d Day of the month, as a number (01 to 31)
+%Y Four-digit year, such as 2019
+%y Two-digit year, such as 19
+%H Hour, in 24-hour format (00 to 23)
+%I Hour, in 12-hour format (01 to 12)
+%p AM or PM
+%M Minutes (00 to 59)
+%S Seconds (00 to 61)
+
+Example:
+test_date = "05/01/2010 and 11:08:00"
+new_date = dt.datetime.strptime(test_date, "%d/%m/%Y and %H:%M:%S")
+                                                     ^^^ case sensitive
+
+String format to time function
+strftime() -> Converts dt Objects to Strings
+y = datetimeobject.strdtime(format)
+
+### Working with data
+
+    Opening a .txt file
+    mytext = open('bsp.txt','r')
+    <_io.TextIOWrapper name='bsp.txt' mode='r' encoding='cp1252'>
+    x = mytext.read() -> reads the text
+if i add a number inside read(5) it will retrieve only the first n lines
+
+Input function -> The input() function prompts the user for input and returns that input as a string. It waits until the user enters data and presses Enter.
+
+    user_input = input("Please enter your name: ")
+    print("Hello, " + user_input + "!")
+
+Since input() returns data as a string, if you need to work with numeric input, you'll have to convert it.
+
+    age = input("Please enter your age: ")
+    age = int(age)  # Convert the string input to an integer
+    print("In 5 years, you will be " + str(age + 5) + " years old.")
+
+It's a good practice to handle cases where the user might enter invalid data.
+
+    while True:
+        try:
+            number = int(input("Please enter a number: "))
+            break  # Exit loop if conversion is successful
+        except ValueError:
+            print("That's not a valid number. Please try again.")
+    print("You entered the number: " + str(number))
