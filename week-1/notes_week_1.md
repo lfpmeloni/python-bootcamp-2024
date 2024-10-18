@@ -88,6 +88,10 @@ Open the Outline view
 
     Ctrl+Shift+O
 
+Open Keyboard Shortcuts
+
+    Ctrl+K, Ctrl+S
+
 ## Day 2
 
 ### Common Comments Tracked in PyCharm
@@ -327,11 +331,45 @@ It's a good practice to handle cases where the user might enter invalid data.
             print("That's not a valid number. Please try again.")
     print("You entered the number: " + str(number))
 
-### Day 5
+## Day 5
 
-list, tuble, dict, set
+### list, tuble, dict, set
 
 list -> Collection of ordered, changeable (mutable) Objects
 tuple -> collection of ordered, unchangeable (unmutable) objects
 dict -> A mutable, ordered collection of Objects saved with a Key
 set -> A mutable, unordered collection of unmutable Objects
+
+### List
+
+A mutable, ordered collection that allows duplicate elements. It is often used when you need to store a sequence of items that can be changed (added or removed). Example:
+``` my_list = [1, 2, 3, 4] ```
+[Python Documentation - Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+### Tuple
+
+An immutable, ordered collection that allows duplicate elements. It is useful when you need to store a sequence of items that should not change. Example:
+```my_tuple = (1, 2, 3, 4)```
+[Python Documentation - Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+
+### Dictionary
+
+A mutable, unordered collection of key-value pairs. Each key must be unique, and it allows quick access to values based on keys.Example:
+```my_dict = {'name': 'Alice', 'age': 30}```
+[Python Documentation - Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+
+### Set
+
+A mutable, unordered collection of unique elements. Sets are commonly used for membership testing and eliminating duplicate entries. Example:
+```my_set = {1, 2, 3, 4}```
+[Python Documentation - Sets](https://docs.python.org/3/tutorial/datastructures.html#sets)
+
+| **Property**      | **List**                    | **Tuple**                   | **Dictionary**                            | **Set**                          |
+|-------------------|-----------------------------|-----------------------------|-------------------------------------------|----------------------------------|
+| **Order**         | Ordered                     | Ordered                     | Unordered (as of Python 3.7+ maintains insertion order) | Unordered                        |
+| **Mutable**       | Yes                         | No                          | Yes                                       | Yes                              |
+| **Duplicates**    | Allows duplicates           | Allows duplicates           | Keys must be unique                       | No duplicates                     |
+| **Syntax**        | `[1, 2, 3]`                 | `(1, 2, 3)`                 | `{'key': 'value'}`                        | `{1, 2, 3}`                       |
+| **Indexing**      | Supports indexing           | Supports indexing           | Access through keys                       | No indexing                       |
+| **Use Cases**     | Dynamic collections         | Fixed data that shouldn’t change | Key-value associations for fast lookup | Unique collections for membership testing |
+| **Documentation** | [Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) | [Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences) | [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) | [Sets](https://docs.python.org/3/tutorial/datastructures.html#sets) |
