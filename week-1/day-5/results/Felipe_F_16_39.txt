@@ -1,0 +1,16 @@
+~~~======================================~~~
+~~~~~~~====== Stadt Land Fluss ======~~~~~~~
+~~~======================================~~~
+
+Name: Felipe
+Letter: F
+~~~======================================~~~
+City: Florianopolis
+Country: Finland
+River: Formoso
+Color: False
+Animal: Flamingo
+~~~======================================~~~
+Your time: 45 seconds
+Incorrect answers: 0
+~~~======================================~~~
