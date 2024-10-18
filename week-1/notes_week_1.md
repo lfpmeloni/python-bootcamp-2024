@@ -326,3 +326,12 @@ It's a good practice to handle cases where the user might enter invalid data.
         except ValueError:
             print("That's not a valid number. Please try again.")
     print("You entered the number: " + str(number))
+
+### Day 5
+
+list, tuble, dict, set
+
+list -> Collection of ordered, changeable (mutable) Objects
+tuple -> collection of ordered, unchangeable (unmutable) objects
+dict -> A mutable, ordered collection of Objects saved with a Key
+set -> A mutable, unordered collection of unmutable Objects
