@@ -83,6 +83,30 @@ with open('Datumsformatums.txt', 'w') as file:
 # - Save this information in a readable format to .txt and as .csv.
 # - The .csv file should be easily readable with excel.
 # Hint: In .csv, you must pay attention to the delimiter!
+
+# Collect inputs from the user
+name = input("Enter your name: ")
+fav_color = input("What is your favorite color? ")
+fav_animal = input("What is your favorite animal? ")
+
+# Format to save to txt
+info_to_text = f"Name: {name}\nFavorite Color: {fav_color}\nFavorite Animal: {fav_animal}\n"
+
+# Save the information to a .txt file appending to existing one ('a')
+with open('input_data.txt', 'a') as txt_file:
+    txt_file.write(info_to_text)
+
+print("Information has been saved to 'input_data.txt'")
+
+import csv
+
+with open('input_data.csv', 'a', newline='') as csv_file:
+    writer = csv.writer(csv_file, delimiter=',')
+    # Create a header
+    # writer.writerow(["Name","Favorite Color", "Favorite Animal"])
+    # Write the data
+    writer.writerow([name, fav_color, fav_animal])
+
 # Exercise Stadt Land Fluss)
 # Write a program to play Stadt Land Fluss! The following requirements should be fulfilled:
 # - A nice and pretty greeting in the console.
@@ -107,5 +131,62 @@ with open('Datumsformatums.txt', 'w') as file:
 # o Pay attention to a pleasant presentation when outputting the results.
 # Important: Please refrain from implementing any checks. This will be an exercise next week after
 # queries have been covered.
+
+import os
+import time
+
+# Nice greeting message
+print("Hello and welcome! Das ist Stadt, Land, Fluss!")
+print("Let's see how quickly you can answer all questions")
+
+# Getting ready
+name = input("Enter your name: ")
+letter = input("[Will start the counter] Choose a letter: ")
+
+# Start timing and open all inputs
+start_time = time.time()
+city = input("Enter a city: ")
+country = input("Enter a country: ")
+river = input("Enter a river: ")
+fruit = input("Enter a fruit: ")
+vegetable = input("Enter a vegetable: ")
+color = input("Enter a color: ")
+custom = input("Enter something of your choosing: ")
+
+# End timing
+end_time = time.time()
+time_taken = end_time - start_time
+print(time_taken, type(time_taken))
+
+# Convert to readable time
+time_taken_readable = str(dt.timedelta(seconds=int(time_taken)))
+
+one_min_fast = "Yes" if time_taken < 60 else "no"
+
+output_content = f"""
+Game Results for {name} on letter {letter}:
+
+You took {time_taken_readable} seconds to complete.
+Was it less than a minute? {one_min_fast}
+
+- City: {city}
+- Country: {country}
+- River: {river}
+- Fruit: {fruit}
+- Vegetable: {vegetable}
+- Color: {color}
+- Custom: {custom}
+"""
+
+# Create a folder to store results
+os.makedirs("results", exist_ok=True)
+file_path = os.path.join("results", f"{name}_{letter}_game.txt")
+
+with open(file_path, 'w') as file:
+    file.write(output_content)
+
+print(f"Thanks for playing, {name}! Your results have been saved.")
+print(output_content)
+
 # Exercise Stadt Land Fluss_2)
 # Play together with other people!
