@@ -1,3 +1,10 @@
+"""
+exercises_day_4.py
+Author: Felipe Meloni  
+Date: 2024-10-18
+Description: Use of datetime
+"""
+
 # Exercise 1)
 # Calculate exactly how old Shiva is to the day.
 

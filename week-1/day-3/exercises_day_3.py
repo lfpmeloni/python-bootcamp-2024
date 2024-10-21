@@ -1,3 +1,10 @@
+"""
+exercises_day_3.py
+Author: Felipe Meloni  
+Date: 2024-10-17
+Description: Interations class
+"""
+
 # Part 1: Date and Time
 # Exercise 1)
 # Save the current date and time as a variable.
