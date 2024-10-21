@@ -1,3 +1,10 @@
+"""
+class_day_5.py
+Author: Felipe Meloni  
+Date: 2024-10-18
+Description: Lists, Tuples, Dictionaries and Sets
+"""
+
 # Übung
 # • Teil 1: Einführung:
 # • Sucht für alle vier Objekttypen die Dokumentation.

@@ -1,3 +1,10 @@
+"""
+exercises_day_5.py
+Author: Felipe Meloni  
+Date: 2024-10-18
+Description: Modifing Stadt Land Fluss game
+"""
+
 # Exercise Stadt Land Fluss v.2)
 # Expand Stadt Land Fluss with the following points:
 # - Safe the results in a dict with the question as key and the answer(input) as value
