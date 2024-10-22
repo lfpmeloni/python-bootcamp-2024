@@ -99,4 +99,90 @@ Avoiding indentation Errors
     message = "Hello Python world!"
     print(message) -> IndentationError: unexpected indent
 
+Working with numerical lists
 
+    for value in range(1,5):
+        print(value) -> prints 1 through 4
+
+    for value in range(6)
+        print(value) -> prints 0 through 5
+
+Making a list of numbers
+
+    numbers = list(range(1,6))
+    print(numbers) -> [1, 2, 3, 4, 5]
+
+Skip numbers in given range
+
+    even_numbers = list(range(2,11,2))
+    print(even_numbers) -> [2, 4, 6, 8, 10]
+
+You can create almost any set of numbers
+
+    squares = []
+    for value in range (1,11):
+        square = value ** 2
+        squares.append(square)
+        # Or a more Pythonic way inside the loop
+        # squares.append(value**2)
+    print(squares) -> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+Simple statistics with a List of Numbers
+
+    min(squares) -> 1
+    max(squares) -> 100
+    sum(digits) -> 385
+
+List Comprehensions: Allows to generate the same outcome above in just one line of code by combining the for loop and the creation of new elements into one single line.
+
+    squares = [value**2 for value in range (1,11)]
+    print (squares) -> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+Working with Part of a List
+
+Slicing a list: As with the range() function, Python stops one item before the secong index specifies. **You can include a third value in the brackets indicating a slice. If a third value is
+included, this tells Python how many items to skip between items in the specified
+range.**
+
+    players = ['charles', 'martina', 'michael', 'florence', 'eli']
+    print(players[0:3]) -> ['charles', 'martina', 'michael']
+    print(players[-3:]) -> ['michael', 'florence', 'eli']
+
+Looping through a slice
+
+print("Here are the first three players on my team:")
+for player in players[:3]:
+    print(player.title()) -> Here are the first three players on my team:
+    Charles
+    Martina
+    Michael
+
+Copying a list: Useful when you start with a list and want to edit it without altering the original one. [:] -> This tells Python to make a copy of the entire list
+
+    my_foods = ['pizza', 'falafel', 'carrot cake']
+    1 friend_foods = my_foods[:]
+    print("My favorite foods are:")
+    print(my_foods)
+    print("\nMy friend's favorite foods are:")
+    print(friend_foods)
+
+## Day 7
+
+### Functions
+
+docstring best practice
+
+    def beispiel():
+        """
+        Just an example that prints some text :return: None
+        """
+        print('Some random Text: Panda!')
+
+Passing information to a Function
+
+    def greet_user(username):
+        """Display a simple greeting."""
+        print(f"Hello, {username.title()}!")
+    greet_user('jesse')
+
+Arguments and Parameters
