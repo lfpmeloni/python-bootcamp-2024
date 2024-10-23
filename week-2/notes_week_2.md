@@ -186,3 +186,88 @@ Passing information to a Function
     greet_user('jesse')
 
 Arguments and Parameters
+
+## Day 8
+
+### Arguments
+
+Notes and exercises are being done directly on the class_day_8.py file
+
+Introduction to Typing in Python Functions
+Typing allows you to specify the expected data types for function parameters and return values. It helps in making code more readable, reducing errors, and enhancing development tools like IDEs and linters to provide better suggestions and warnings. Python uses type hints to define types but doesn't enforce them strictly, meaning incorrect types won't stop the code from running (unless there is a type-related runtime error).
+
+Syntax for Typing:
+
+    def function_name(param_name: data_type) -> return_type:
+        # function logic here
+    param_name: data_type: Specifies the type of the parameter.
+    -> return_type: Specifies the type of the return value.
+
+Example with Typing:
+
+    def add_numbers(x: int, y: int) -> int:
+        return x + y
+    This function expects two integers x and y as input and returns an integer.
+
+Using Typing with Default Values:
+
+When defining a default value for a parameter, you still specify the type, and then assign the default value:
+
+    def greet(name: str, age: int = 18) -> str:
+        return f"Hello {name}, you are {age} years old."
+
+In this case name must be a string, age is an integer with a default value of 18.
+
+What Happens if You Call the Function with the Wrong Type?
+
+Python does not enforce types at runtime. If you call the function with the wrong type, the function will still run unless the operation inside the function depends on the correct type and raises an error.
+
+Example:
+
+    def add_numbers(x: int, y: int) -> int:
+        return x + y
+    If you call it with:
+
+    print(add_numbers("3", 5))  # Incorrect types
+    It will raise a TypeError at runtime because Python cannot add a string to an integer:
+
+    TypeError: can only concatenate str (not "int") to str
+    Using Typing with Calculations:
+
+If you specify a type (e.g., int) and pass a wrong type like str, you will get an error during calculations:
+
+    def multiply(x: int, y: int) -> int:
+        return x * y
+
+Calling:
+
+    print(multiply("3", 2))  # Wrong type, string instead of integer
+
+Results in:
+
+    333  # It repeats the string "3" twice instead of performing multiplication.
+
+What Happens When Printing?
+
+If you print a value that doesn't match the expected type, Python will still print it without any issue because print() accepts any object. However, the function logic might not behave as expected.
+
+Example:
+
+    def concat_strings(a: str, b: str) -> str:
+        return a + b
+
+Calling:
+
+    print(concat_strings(3, " apples"))  # Wrong type
+    Will result in:
+
+    TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+Conclusion:
+
+Typing helps you specify the types of inputs and outputs for functions.
+Python doesn't enforce types at runtime but helps developers by providing clearer intent and possible warnings in IDEs.
+If wrong types are used in calculations or operations, it will result in runtime errors.
+Default values work seamlessly with typing, as long as the default value matches the specified type.
+
+The -> str in def concat_strings(a: str, b: str) -> str: indicates that the function is expected to return a value of type str (string).
