@@ -1,6 +1,6 @@
 # Content of Week 2
 
-## Day 1
+## Day 6
 
 ### Lists
 
@@ -271,3 +271,123 @@ If wrong types are used in calculations or operations, it will result in runtime
 Default values work seamlessly with typing, as long as the default value matches the specified type.
 
 The -> str in def concat_strings(a: str, b: str) -> str: indicates that the function is expected to return a value of type str (string).
+
+## Day 9
+
+Lesson Summary: References in Python
+In Python, references are how variables point to the memory location where an object is stored. When you assign a variable to an object (e.g., a list or dictionary), the variable holds a reference to that object in memory, rather than the actual data itself.
+
+Key Points:
+
+### Variables are References
+
+When you assign a value to a variable, that variable doesn't hold the value directly. Instead, it holds a reference to the object in memory.
+Example:
+
+    a = [1, 2, 3]
+    b = a  # `b` now references the same list as `a`
+    b.append(4)
+    print(a)  # Output: [1, 2, 3, 4]
+
+In this case, a and b reference the same list, so changes made through b are reflected in a.
+
+### Mutable vs. Immutable Types
+
+Mutable objects (e.g., lists, dictionaries, sets) can be modified in place, meaning changes via one reference affect all references.
+Immutable objects (e.g., integers, strings, tuples) cannot be changed. If you modify an immutable object, a new object is created, and the variable will reference the new object.
+Example with immutable objects:
+
+    x = 10
+    y = x
+    y += 1
+    print(x)  # Output: 10 (unchanged, because integers are immutable)
+
+### Copying Objects
+
+If you want to create a new independent object instead of a reference, you need to copy the object.
+For shallow copies (copies only the outer structure, not the nested objects):
+
+    import copy
+    a = [1, [2, 3]]
+    b = copy.copy(a)
+    b[0] = 9
+    b[1].append(4)
+    print(a)  # Output: [1, [2, 3, 4]] (the nested list is still shared)
+
+For deep copies (copies everything, including nested objects):
+
+    b = copy.deepcopy(a)
+
+### Object Identity
+
+The id() function returns the memory address of an object.
+
+    a = [1, 2, 3]
+    print(id(a))  # Prints the memory address of `a`
+
+### Pass-by-Reference
+
+Function arguments are passed by reference in Python. This means that if a mutable object is passed into a function, the function can modify the original object.
+
+    def modify_list(lst):
+        lst.append(4)
+
+    my_list = [1, 2, 3]
+    modify_list(my_list)
+    print(my_list)  # Output: [1, 2, 3, 4]
+
+### Key points
+
+1. Variables in Python hold references to objects in memory.
+2. Mutable objects can be modified through references, while immutable objects cannot.
+3. Copying objects is necessary to avoid unintentional modifications when working with mutable objects.
+
+### Understanding String References in Python
+
+In Python, strings are immutable objects, meaning that once a string is created, its content cannot be changed. When you work with strings, it’s essential to understand how references, objects, attributes, and indexes work together.
+
+Objects and References
+String Object: A string is an object that holds a sequence of characters.
+
+Reference: When you assign a string to a variable, you’re creating a reference to the string object in memory, not a copy of the string. Multiple variables can reference the same string object.
+
+    s1 = "Hello"
+    s2 = s1  # s2 references the same string object as s1
+
+In this example, both s1 and s2 refer to the same string object in memory.
+
+Attributes
+Strings in Python come with built-in methods (attributes) that you can use to manipulate or retrieve information from them.
+
+    s = "Hello, World!"
+    upper_s = s.upper()  # Calls the upper() method to return a new string
+
+The method upper() creates a new string object with all characters converted to uppercase. The original string s remains unchanged because strings are immutable.
+
+Indexes
+Strings can be accessed using indexes, which are integer values that represent the position of each character in the string, starting from 0.
+
+    s = "Hello"
+    first_character = s[0]  # 'H'
+    last_character = s[-1]  # 'o'
+
+In this example, s[0] retrieves the first character of the string, while s[-1] retrieves the last character.
+
+Modifying Strings
+Since strings are immutable, any method that appears to modify a string will instead return a new string object. For example:
+
+    original = "Hello"
+    modified = original.replace("H", "J")  # Creates a new string
+
+Here, original remains "Hello", while modified becomes "Jello". The reference for original does not change; it still points to the original string object.
+
+Memory Management
+When multiple variables reference the same string object, they share that object in memory. Modifying one variable’s string (e.g., through methods) creates a new string object, leaving the original object intact.
+
+Strings are Immutable: Once created, their content cannot be changed. Any "modification" returns a new string object.
+
+References: Variables can refer to the same string object in memory.
+
+Methods and Attributes: Strings have built-in methods to perform operations; these return new strings rather than modifying the original.
+
+Indexing: You can access characters in a string using indexing, with 0 being the first position.

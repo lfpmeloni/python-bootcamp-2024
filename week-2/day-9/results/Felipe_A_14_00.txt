@@ -1,0 +1,23 @@
+~~~======================================~~~
+
+~~~~~~~====== Stadt Land Fluss ======~~~~~~~
+
+~~~======================================~~~
+
+Name: Felipe
+
+Letter: A
+
+~~~======================================~~~
+City: Amazonas
+Country: Argentina
+River: Amazonas
+Color: Amarelo
+Animal: Avestruz
+~~~======================================~~~
+
+Your time: 25 seconds
+
+Incorrect answers: 0
+
+~~~======================================~~~
