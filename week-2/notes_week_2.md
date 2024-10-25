@@ -391,3 +391,73 @@ References: Variables can refer to the same string object in memory.
 Methods and Attributes: Strings have built-in methods to perform operations; these return new strings rather than modifying the original.
 
 Indexing: You can access characters in a string using indexing, with 0 being the first position.
+
+## Day 10
+
+### Recursive Functions in Python
+
+Definition:
+A recursive function is a function that calls itself in order to solve a problem. It typically breaks down a complex problem into simpler sub-problems of the same type.
+
+Key Characteristics:
+Base Case: Every recursive function must have at least one base case that stops the recursion. This prevents infinite loops and ensures the function eventually terminates.
+
+Recursive Case: This part of the function calls itself with a modified argument, moving towards the base case.
+
+Example:
+Here's a simple example that computes the factorial of a number using recursion:
+
+    def factorial(n):
+        if n == 0 or n == 1:  # Base case
+            return 1
+        else:
+            return n * factorial(n - 1)  # Recursive case
+
+Example usage:
+
+    result = factorial(5)  # 5! = 120
+    print(result)  # Output: 120
+
+Advantages:
+Simplicity: Recursive solutions can be more intuitive and easier to read, especially for problems that naturally fit recursive structures (e.g., tree traversals).
+
+Conciseness: They can reduce the amount of code needed compared to iterative solutions.
+
+Disadvantages:
+Performance: Recursive functions can be less efficient due to the overhead of multiple function calls, leading to increased memory usage.
+
+Stack Overflow: Deep recursion can lead to a stack overflow error if the base case is not reached.
+
+### Importance of Debugging Recursive Functions
+
+Why Use a Debugger?
+Visualizing the Call Stack: Recursive functions can create many nested calls. A debugger helps you see the call stack, making it easier to understand the flow of execution.
+
+Tracking Variable States: You can monitor variable values at each level of recursion, helping identify issues.
+
+Identifying Base Case Issues: A debugger ensures that the base case is reached and prevents infinite recursion.
+
+Step-by-Step Execution: You can execute code line by line, making it easier to see how recursion unfolds.
+
+Using the Debugger in Visual Studio Code (VSCode)
+Setup:
+Open VSCode: Launch Visual Studio Code.
+Create a New Python File: Write a recursive function (e.g., factorial).
+Set Up the Debugger:
+Click on the "Run and Debug" icon and create a launch.json file for configurations.
+Set Breakpoints: Click in the gutter next to the line number to set breakpoints for debugging.
+Debugging Controls:
+
+    Continue (F5): Run until the next breakpoint.
+    Step Over (F10): Execute the next line without stepping into functions.
+    Step Into (F11): Step into the function to see inner workings.
+    Step Out (Shift + F11): Step out of the current function.
+    Restart (Ctrl + Shift + F5): Restart debugging.
+    Stop (Shift + F5): Stop debugging.
+
+Observations:
+Watch Variables: Monitor variable values at each point.
+Call Stack: Review the order of function calls.
+Debug Console: Evaluate expressions and see outputs during debugging.
+Summary of IDs and Changes in Recursive Functions
+While debugging recursive functions, you can visualize how each function call affects variable states and how control flows through the recursive structure. Understanding these concepts is crucial for effectively debugging recursive logic.
