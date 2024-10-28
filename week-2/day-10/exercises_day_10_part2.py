@@ -91,3 +91,46 @@ merge_sort(my_list)
 end = time.time()
 runtime = end - start
 print("Runtime script 1: ", runtime, "\n")
+
+# By running comparisons the merge code above was not optimized because of List Slicing Overhead. Each time left = left[1:] or right = right[1:] is performed, it's creating a new list by slicing. In Python, slicing a list like this has a time complexity of O(n), where n is the number of elements being sliced. Since this slicing occurs inside a loop that runs O(n) times, the overall time complexity for the merge operation becomes O(n²) instead of the optimal O(n).
+# The code bellow fixes this issue:
+
+def merge_sort_2(lst) -> list:
+    if len(lst) <= 1:
+        return lst
+    mid = len(lst) // 2
+    left = merge_sort_2(lst[:mid])
+    right = merge_sort_2(lst[mid:])
+    return merge_2(left, right)
+
+def merge_2(left, right) -> list:
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# Generate a large random list
+my_list = [random.uniform(0.0, 1000.0) for _ in range(100000)]
+
+# Benchmark felipe
+start = time.time()
+sorted_1 = merge_sort(my_list.copy())
+end = time.time()
+print("Unoptimized runtime: ", end - start, "seconds")
+
+# Benchmark golnaz
+start = time.time()
+sorted_2 = merge_sort_2(my_list.copy())
+end = time.time()
+print("Optimized runtime: ", end - start, "seconds")
+
+# Unoptimized runtime:  13.058089971542358 seconds
+# Optimized runtime:  0.17301106452941895 seconds
