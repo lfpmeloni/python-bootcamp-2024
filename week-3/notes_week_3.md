@@ -360,3 +360,204 @@ Example 2: Raising TypeError
 - Enforcing Invariants: Maintaining certain conditions within your program logic.
 
 **Conclusion:** Effective error handling in Python using try, except, else, and finally blocks allows your programs to manage unexpected situations gracefully. By understanding and handling specific error types, you can create more robust and reliable code. Additionally, using raise enables you to enforce custom error conditions, enhancing the integrity of your applications.
+
+## Day 13
+
+### Classes in Python
+
+- A **class** is a blueprint for creating objects.
+- It encapsulates data for the object and methods to manipulate that data.
+
+#### 0. Attributes and Methods
+
+- **Attributes:** Variables that belong to the class.
+- **Methods:** Functions defined inside a class that operate on the class's attributes.
+
+    class Dog:
+        def bark(self):
+            return "Woof!"
+
+#### 1. The `__init__` Method
+
+- The `__init__` method is a special method that initializes new objects. It is the constructor method.
+
+    class Dog:
+        def `__init__`(self, name):
+            self.name = name
+
+        def bark(self):
+            return f"{self.name} says Woof!"
+
+#### 2. Inheritance
+
+- Inheritance allows a class (child) to inherit attributes and methods from another class (parent).
+
+    class Animal:
+        def speak(self):
+            return "Animal speaks"
+
+    class Dog(Animal):
+        def bark(self):
+            return "Woof!"
+
+#### 3. Polymorphism
+
+- Polymorphism allows methods to do different things based on the object it is acting upon.
+
+    def animal_sound(animal):
+        print(animal.speak())
+
+    dog = Dog()
+    animal_sound(dog)  # Output: Animal speaks
+
+#### 4. Encapsulation
+
+- Encapsulation restricts access to certain components of an object, Use private attributes and methods to prevent access from outside the class.
+
+    class Account:
+        def `__init__`(self, balance):
+            self.__balance = balance  # Private attribute
+
+        def deposit(self, amount):
+            self.__balance += amount
+
+#### 5. Class vs. Instance Variables
+
+- **Instance Variables:** Unique to each instance of a class.
+- **Class Varibles:** Shared across all intances of a class.
+
+    class Dog:
+        species = "Canis familiaris"  # Class variable
+
+        def __init__(self, name):
+            self.name = name  # Instance variable
+
+#### 6. Static and Class Methods
+
+- **Static Method:** Does not modify class or instance state.
+- **Class Methdos:** Modifies class state and takes `cls` as the first parameter.
+
+    class Dog:
+        species = "Canis familiaris"
+
+        @classmethod
+        def get_species(cls):
+            return cls.species
+
+        @staticmethod
+        def info():
+            return "Dogs are domesticated mammals."
+
+#### 7. Magic Methods (also known as Dunder Methods)
+
+- Magic methods are special methods in Python that start and end with double underscores (`__`).
+- They allow you to define how objects of your class behave with built-in functions and operators.
+- Enable operator overloading: Define custom behavior for operators like `+`, `-`, `*`, etc.
+- Allow for integration with Python's built-in functions: Use methods with functions like `len()`, `str()`, `repr()`, etc.
+
+#### 8. Common Magic Methods
+
+- Object Creation and Initialization
+- **`__init__(self, ...)`**: Initializes a new object.
+
+        class MyClass:
+            def __init__(self, value):
+                self.value = value
+
+- String Representation
+- **`__str__(self)`**: Defines the string representation of an object (for `print()` and `str()`).
+
+        class MyClass:
+            def __str__(self):
+                return f"MyClass with value {self.value}"
+
+- **`__repr__(self)`**: Defines the official string representation of an object (for `repr()`).
+
+        class MyClass:
+            def __repr__(self):
+                return f"MyClass({self.value})"
+
+- Comparison Operators
+- **`__eq__(self, other)`**: Defines behavior for the equality operator (`==`).
+- **`__lt__(self, other)`**: Defines behavior for the less-than operator (`<`).
+
+        class MyClass:
+            def __eq__(self, other):
+                return self.value == other.value
+
+- Arithmetic Operators
+- **`__add__(self, other)`**: Defines behavior for addition (`+`).
+- **`__sub__(self, other)`**: Defines behavior for subtraction (`-`).
+
+        class MyClass:
+            def __add__(self, other):
+                return MyClass(self.value + other.value)
+
+- Container Methods
+- **`__len__(self)`**: Defines behavior for `len()`.
+
+        class MyContainer:
+            def __len__(self):
+                return len(self.items)  # Assuming items is a list
+
+- **`__getitem__(self, key)`**: Defines behavior for indexing (`[]`).
+
+        class MyContainer:
+            def __getitem__(self, index):
+                return self.items[index]
+
+#### 9. Access Modifiers in Python
+
+Access modifiers in Python define the visibility and accessibility of class attributes and methods. They control how and where these members can be accessed. Python primarily uses three access modifiers: **public**, **protected**, and **private**.
+
+- Public members (attributes and methods) are accessible from anywhere in the code.
+- By default, all members in Python classes are public.
+
+        class MyClass:
+            def __init__(self):
+                self.public_attribute = "I am public!"
+
+            def public_method(self):
+                return "This is a public method."
+
+        # Usage
+        obj = MyClass()
+        print(obj.public_attribute)  # Accessible
+        print(obj.public_method())    # Accessible
+
+- Protected members are intended for internal use within the class and its subclasses.
+- In Python, protected members are indicated by a single underscore (_) prefix.
+
+        class MyClass:
+            def __init__(self):
+                self._protected_attribute = "I am protected!"
+
+            def _protected_method(self):
+                return "This is a protected method."
+
+        class SubClass(MyClass):
+            def access_protected(self):
+                return self._protected_attribute
+
+        # Usage
+        obj = SubClass()
+        print(obj.access_protected())  # Accessible through subclass method
+        print(obj._protected_attribute)  # Direct access (not recommended)
+
+- Private members are restricted to the class in which they are defined.
+- They are indicated by a double underscore (__) prefix.
+
+        class MyClass:
+            def __init__(self):
+                self.__private_attribute = "I am private!"
+
+            def __private_method(self):
+                return "This is a private method."
+
+            def access_private(self):
+                return self.__private_attribute
+
+        # Usage
+        obj = MyClass()
+        print(obj.access_private())  # Accessible through a public method
+        # print(obj.__private_attribute)  # Raises AttributeError
