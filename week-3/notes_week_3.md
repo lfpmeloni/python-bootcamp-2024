@@ -561,3 +561,51 @@ Access modifiers in Python define the visibility and accessibility of class attr
         obj = MyClass()
         print(obj.access_private())  # Accessible through a public method
         # print(obj.__private_attribute)  # Raises AttributeError
+
+## Day 14
+
+### Mutable and Immutable Objects in Python
+
+#### Introduction
+
+In Python, objects can be classified as mutable or immutable based on whether their state or content can be changed after they are created. Understanding the distinction between these types of objects is crucial for effective programming and memory management.
+
+#### Mutable Objects
+
+Definition: Mutable objects are those that can be modified after their creation. This means you can change their content without creating a new object in memory.
+
+Examples:
+Lists: You can change, add, or remove elements.
+Dictionaries: You can modify values, add new key-value pairs, or delete existing pairs.
+Sets: You can add or remove elements.
+Characteristics:
+Memory Reference: When you modify a mutable object, the memory address (ID) remains the same because the object itself is not replaced; only its contents are altered.
+Multiple References: If multiple variables reference the same mutable object, changes made through one variable will be reflected in all references.
+
+    my_list = [1, 2, 3]
+    print(id(my_list))  # Memory ID of the original list
+    my_list[0] = 10
+    print(id(my_list))  # Memory ID remains the same after modification
+
+#### Immutable Objects
+
+Definition: Immutable objects cannot be changed after their creation. Any modification will result in the creation of a new object.
+
+Examples:
+Tuples: Once created, you cannot change the elements.
+Strings: Modifying a string results in a new string object.
+Frozensets: Similar to sets but cannot be modified.
+Characteristics:
+Memory Reference: When you try to modify an immutable object, a new object is created in memory, and the original remains unchanged. This results in a different memory address (ID).
+Efficiency: Immutable objects can be more efficient in certain situations, especially when used as keys in dictionaries or elements in sets.
+
+    my_tuple = (1, 2, 3)
+    print(id(my_tuple))  # Memory ID of the original tuple
+    my_tuple = (10, 2, 3)  # Create a new tuple
+    print(id(my_tuple))  # Memory ID changes after reassignment
+
+#### Summary of Memory References
+
+- Mutable Objects: The memory ID stays the same when modifying the object (e.g., updating a list element).
+- Immutable Objects: The memory ID changes when creating a new version of the object (e.g., modifying a string or tuple).
+- Shared References: For mutable objects, multiple variables can reference the same object, leading to shared state. For immutable objects, any attempt to "modify" creates a new object.
