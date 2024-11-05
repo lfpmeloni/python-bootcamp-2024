@@ -1,3 +1,10 @@
+"""
+exercises_day_16.py
+Author: Felipe Meloni  
+Date: 2024-11-04
+Description: Inheritance in Python
+"""
+
 # Beispiel von Vererbung
 
 # class Dog:
