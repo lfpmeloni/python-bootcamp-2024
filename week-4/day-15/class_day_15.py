@@ -1,3 +1,12 @@
+"""
+class_day_15.py
+Author: Felipe Meloni  
+Date: 2024-11-04
+Description: Inheritance in Python
+"""
+
+# Super and Sub Classes / Inheritance in Python
+
 class SuperClass:
 	class_attribute_puplic = None
 	_class_attribute_protected = None
@@ -41,3 +50,66 @@ class SubClass(SuperClass):
 		# calls the protected method of SuperClass
 		# print the protected attribute of SubClass
 		self._methodProtected()
+
+# Multilevel Inheritance
+
+class Animal: # superclass
+    def look(self):
+        print('It\'s a animal!')
+
+
+class Ape(Animal): # subclass 1
+    def look(self):
+        print('It\'s an ape!')
+
+
+class Gorilla(Ape): # subclass 2
+    def look(self):
+        Animal.look()
+        super().look()
+        print('It\'s a gorilla!')
+
+
+tier = Gorilla()
+tier.look()
+
+# Multiple Inheritance (vererbung) test
+
+class A:
+	def hi(self):
+		print('Method A')
+
+	def a(self):
+		print('Method A')
+
+
+class B:
+	def hi(self):
+		print('Method B')
+
+	def b(self):
+		print('Method B')
+
+
+class C(A, B):
+	def hi(self):
+		print('Method C')
+
+	def c(self):
+		print('Method C')
+
+
+class D(C, A):
+	def hi(self):
+		print('Method D')
+
+	def d(self):
+		print('Method D')
+
+
+test = D()
+test.hi()
+# test.a()
+# test.b()
+# test.c()
+# test.d()
