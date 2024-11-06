@@ -1,0 +1,81 @@
+[
+    {
+      "id": "1.2.13-122",
+      "type": "multiple_choice",
+      "question": "When are you not allowed to park on the right-hand lane?",
+      "options": [
+        {
+          "text": "If there are rails integrated into the road lane",
+          "is_correct": true
+        },
+        {
+          "text": "If there is a suitable parking lane to the right of the road lane",
+          "is_correct": true
+        },
+        {
+          "text": "If there is an adequately paved hard shoulder to the right of the road lane",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+      "id": "1.2.03-104",
+      "type": "multiple_choice",
+      "question": "By which rule of thumb can you determine from the speed the distance in metres a motor vehicle travels in one second?",
+      "options": [
+        {
+          "text": "{Speed in km/h}/10 x 3",
+          "is_correct": true
+        },
+        {
+          "text": "{Speed in km/h}/10 x 5",
+          "is_correct": false
+        },
+        {
+          "text": "{Speed in km/h}/10 x {Speed in km/h}/10",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": "1.3.01-053",
+      "type": "multiple_choice",
+      "question": "You want to turn right into a priority road. What must you look out for?",
+      "options": [
+        {
+          "text": "For cyclists and pedestrians alongside you to the right or behind you",
+          "is_correct": true
+        },
+        {
+          "text": "Vehicles coming from the left and from the right",
+          "is_correct": true
+        },
+        {
+          "text": "Only for vehicles coming from the left",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": "2.2.04-107",
+      "type": "numerical",
+      "question": "When driving outside of a built-up area, from what combination vehicle length must you maintain a large enough distance to the vehicle ahead as to allow an overtaking vehicle to pull back into lane in front of you?",
+      "answer": 7,
+      "unit": "m"
+    },
+    {
+      "id": "2.6.06-103",
+      "type": "numerical",
+      "question": "What is the maximum permitted length of a car and trailer vehicle combination, without the protruding load?",
+      "answer": 18,
+      "unit": "m"
+    },
+    {
+      "id": "2.7.05-108",
+      "type": "numerical",
+      "question": "What is the legally prescribed minimum tread depth across the main profile of all tyres on your car?",
+      "answer": 1.6,
+      "unit": "mm"
+    }
+  ]
+  
