@@ -13,7 +13,7 @@ Inheritance Principle
 Inheritance is a classification system where a main class (parent) shares attributes and methods with subclasses.
 
 Example: Animals
-
+3
 Creating multiple animal classes with shared methods, e.g., makeSound(), to avoid redundant coding.
 
 Defining the Main Class
@@ -42,7 +42,7 @@ Private: Accessible only within the class.
 Multi-Level Inheritance
 
 Attributes and methods can be inherited from a subclass to another level of subclass, creating hierarchical inheritance.
-Multiple Inheritance
+Multiple 3
 
 A subclass can inherit from multiple main classes, though it should be used with caution due to complexity.
 
